@@ -1,0 +1,175 @@
+
+const words = [
+    "abandon", "ability", "able", "about", "above", "abroad", "absence", "absolute", "absolutely", "absorb",
+    "abstract", "absurd", "abundance", "abuse", "academic", "accept", "acceptable", "access", "accident", "accommodation",
+    "accompany", "accomplish", "according", "account", "accurate", "accuse", "achieve", "achievement", "acid", "acknowledge",
+    "acquire", "across", "act", "action", "active", "activist", "activity", "actor", "actress", "actual",
+    "administrator", "admire", "admission", "admit", "adolescent", "adopt", "adoption", "adult", "advance", "advanced",
+    "advantage", "adventure", "advertise", "advertisement", "advertising", "advice", "advise", "adviser", "advocate", "affair",
+    "affect", "affection", "afford", "afraid", "after", "afternoon", "afterwards", "again", "against", "age",
+    "agency", "agenda", "agent", "aggressive", "ago", "agree", "agreement", "agricultural", "agriculture", "ahead",
+    "aid", "aim", "air", "aircraft", "airline", "airport", "alarm", "album", "alcohol", "alert",
+    "alien", "alive", "all", "alliance", "allow", "ally", "almost", "alone", "along", "alongside",
+    "already", "also", "alter", "alternative", "although", "altogether", "always", "amazing", "ambassador", "ambition",
+    "ambitious", "ambulance", "amendment", "among", "amount", "amusing", "analysis", "analyst", "analyze", "ancestor",
+    "ancient", "and", "anger", "angle", "angry", "animal", "ankle", "anniversary", "announce", "announcement",
+    "annoy", "annual", "another", "answer", "anticipate", "anxiety", "anxious", "any", "anybody", "anymore",
+    "anyone", "anything", "anyway", "anywhere", "apart", "apartment", "apologize", "apology", "apparent", "apparently",
+    "appeal", "appear", "appearance", "appendix", "appetite", "apple", "application", "apply", "appoint", "appointment",
+    "appreciate", "appreciation", "approach", "appropriate", "approval", "approve", "approximately", "architect", "architecture", "area",
+    "argue", "argument", "arise", "arm", "armed", "army", "around", "arrange", "arrangement", "arrest",
+    "arrival", "arrive", "arrow", "art", "article", "artificial", "artist", "artistic", "as", "ashamed",
+    "aside", "ask", "asleep", "aspect", "assault", "assert", "assess", "assessment", "asset", "assign",
+    "assignment", "assist", "assistance", "assistant", "associate", "association", "assume", "assumption", "assure", "athlete",
+    "athletic", "atmosphere", "attach", "attack", "attempt", "attend", "attention", "attitude", "attorney", "attract",
+    "attraction", "attractive", "attribute", "auction", "audience", "aunt", "author", "authority", "authorize", "automatic",
+    "automatically", "autumn", "available", "average", "avoid", "awake", "award", "aware", "awareness", "away",
+    "awful", "baby", "back", "background", "backward", "bacteria", "bad", "badly", "bag", "bake",
+    "balance", "balanced", "ball", "ban", "banana", "band", "bang", "bank", "banker", "banking",
+    "bankruptcy", "bar", "bare", "barely", "bargain", "barn", "barrel", "barrier", "base", "baseball",
+    "basic", "basically", "basis", "basket", "basketball", "bat", "bath", "bathroom", "battery", "battle",
+    "bay", "beach", "beam", "bean", "bear", "beard", "beat", "beautiful", "beauty", "because",
+    "become", "bed", "bedroom", "bee", "beef", "beer", "before", "begin", "beginning", "behalf",
+    "behave", "behavior", "behind", "being", "belief", "believe", "bell", "belong", "below", "belt",
+    "bench", "bend", "beneath", "benefit", "besides", "best", "bet", "better", "between", "beyond",
+    "bias", "bicycle", "bid", "big", "bike", "bill", "billion", "bind", "biography", "biological",
+    "biology", "bird", "birth", "birthday", "biscuit", "bishop", "bit", "bite", "bitter", "black",
+    "blade", "blame", "blank", "blanket", "blast", "bleed", "blend", "bless", "blessing", "blind",
+    "block", "blood", "blow", "blue", "board", "boat", "body", "boil", "bold", "bomb",
+    "bond", "bone", "bonus", "book", "boom", "boost", "boot", "border", "bore", "bored",
+    "boring", "born", "borrow", "boss", "both", "bother", "bottle", "bottom", "boundary", "bowl",
+    "box", "boy", "boyfriend", "brain", "branch", "brand", "brave", "breach", "bread", "break",
+    "breakthrough", "breast", "breath", "breathe", "breathing", "breed", "breeze", "brick", "bridge", "brief",
+    "briefing", "bright", "brilliant", "bring", "British", "broad", "broadcast", "broken", "brother", "brown",
+    "brush", "bubble", "buck", "bucket", "budget", "build", "building", "bulb", "bulk", "bull",
+    "bullet", "bunch", "burden", "bureau", "burn", "burst", "bury", "bus", "bush", "business",
+    "businessman", "busy", "but", "butter", "button", "buy", "buyer", "by", "cabin", "cabinet",
+    "cable", "cage", "cake", "calculate", "calculation", "calendar", "call", "calm", "camera", "camp",
+    "campaign", "campus", "can", "cancel", "cancer", "candidate", "candle", "candy", "canvas", "cap",
+    "capability", "capable", "capacity", "capital", "captain", "capture", "car", "carbon", "card", "care",
+    "career", "careful", "carefully", "careless", "cargo", "carpet", "carrot", "carry", "cart", "case",
+    "cash", "cast", "castle", "casual", "cat", "catalog", "catch", "category", "cattle", "cause",
+    "caution", "cautious", "cave", "cease", "ceiling", "celebrate", "celebration", "celebrity", "cell", "cemetery",
+    "center", "central", "century", "ceremony", "certain", "certainly", "certificate", "chain", "chair", "chairman",
+    "challenge", "chamber", "champion", "championship", "chance", "change", "channel", "chaos", "chapter", "character",
+    "characteristic", "characterize", "charge", "charity", "charm", "chart", "chase", "chat", "cheap", "cheat",
+    "check", "cheek", "cheer", "cheese", "chef", "chemical", "chemistry", "chest", "chicken", "chief",
+    "child", "childhood", "children", "chill", "chimney", "chin", "chip", "chocolate", "choice", "choir",
+    "choose", "chop", "Christian", "Christianity", "Christmas", "church", "cigarette", "cinema", "circle", "circuit",
+    "circumstance", "citizen", "citizenship", "city", "civil", "civilian", "civilization", "claim", "clarify", "clarity",
+    "class", "classic", "classical", "classification", "classify", "classroom", "clay", "clean", "clear", "clearly",
+    "clerk", "click", "client", "cliff", "climate", "climb", "clinic", "clinical", "clip", "clock",
+    "close", "closed", "closely", "closet", "cloth", "clothes", "clothing", "cloud", "club", "clue",
+    "cluster", "coach", "coal", "coalition", "coast", "coat", "cocaine", "code", "coffee", "cognitive",
+    "coin", "cold", "collapse", "collar", "colleague", "collect", "collection", "collective", "collector", "college",
+    "colonial", "colony", "color", "column", "columnist", "combat", "combination", "combine", "come", "comedy",
+    "comfort", "comfortable", "comic", "command", "commander", "comment", "commentary", "commerce", "commercial", "commission",
+    "commissioner", "commit", "commitment", "committee", "common", "commonly", "communicate", "communication", "community", "company",
+    "comparable", "compare", "comparison", "compel", "compensate", "compensation", "compete", "competition", "competitive", "competitor",
+    "complain", "complaint", "complete", "completely", "complex", "complexity", "compliance", "complicated", "complication", "component",
+    "compose", "composer", "composition", "compound", "comprehensive", "comprise", "compromise", "computer", "concentrate", "concentration",
+    "concept", "conception", "concern", "concerned", "concerning", "concert", "conclude", "conclusion", "concrete", "condemn",
+    "condition", "conduct", "conference", "confess", "confession", "confidence", "confident", "confidential", "configure", "confine",
+    "confirm", "conflict", "confront", "confrontation", "confusion", "congressional", "connect", "connection", "conscience", "conscious",
+    "consciousness", "consecutive", "consensus", "consent", "consequence", "conservation", "conservative", "consider", "considerable", "considerably",
+    "consideration", "consist", "consistency", "consistent", "consistently", "conspiracy", "constant", "constantly", "constitute", "constitution",
+    "constitutional", "constraint", "construct", "construction", "consult", "consultant", "consume", "consumer", "consumption", "contact",
+    "contain", "container", "contemplate", "contemporary", "contend", "content", "contest", "context", "continent", "continue",
+    "continued", "continuous", "contract", "contractor", "contrast", "contribute", "contribution", "contributor", "control", "controversial",
+    "controversy", "convenience", "convenient", "convention", "conventional", "conversation", "convert", "convey", "conviction", "convince",
+    "convinced", "cook", "cookie", "cooking", "cool", "cooperate", "cooperation", "cooperative", "coordinate", "coordination",
+    "coordinator", "cop", "cope", "copy", "cord", "core", "corn", "corner", "corporate", "corporation",
+    "correct", "correctly", "correlation", "correspond", "correspondence", "correspondent", "corridor", "corrupt", "corruption", "cost",
+    "costly", "costume", "cottage", "cotton", "couch", "could", "council", "counsel", "counseling", "counselor",
+    "count", "counter", "counterpart", "country", "county", "couple", "courage", "course", "court", "courtroom",
+    "cousin", "cover", "coverage", "cow", "crack", "craft", "crash", "crawl", "crazy", "cream",
+    "create", "creation", "creative", "creativity", "creator", "creature", "credibility", "credible", "credit", "crew",
+    "crime", "criminal", "crisis", "criteria", "critic", "critical", "criticism", "criticize", "critique", "crop",
+    "cross", "crowd", "crowded", "crucial", "cruel", "cruise", "crush", "cry", "crystal", "cultural",
+    "culture", "cup", "cure", "curiosity", "curious", "currency", "current", "currently", "curriculum", "curtain",
+    "curve", "custody", "custom", "customer", "cut", "cute", "cycle", "dad", "daily", "damage",
+    "dance", "dancer", "dancing", "danger", "dangerous", "dare", "dark", "darkness", "data", "database",
+    "date", "daughter", "dawn", "day", "dead", "deadline", "deadly", "deal", "dealer", "dear",
+    "death", "debate", "debris", "debt", "debut", "decade", "decent", "decide", "decision", "deck",
+    "declare", "decline", "decorate", "decoration", "decrease", "dedicate", "dedication", "deed", "deep", "deeply",
+    "deer", "default", "defeat", "defend", "defendant", "defender", "defense", "defensive", "deficiency", "deficit",
+    "define", "definite", "definitely", "definition", "degree", "delay", "delegate", "delegation", "delete", "deliberate",
+    "deliberately", "delicate", "delight", "delighted", "deliver", "delivery", "demand", "democracy", "democrat", "democratic",
+    "demographic", "demonstrate", "demonstration", "denial", "dense", "density", "deny", "depart", "department", "departure",
+    "depend", "dependent", "depending", "depict", "deploy", "deposit", "depressed", "depression", "depth", "deputy",
+    "derive", "descend", "describe", "description", "desert", "deserve", "design", "designer", "desire", "desk",
+    "desperate", "desperately", "despite", "dessert", "destination", "destroy", "destruction", "destructive", "detail", "detailed",
+    "detect", "detection", "detective", "determination", "determine", "determined", "develop", "developer", "developing", "development",
+    "developmental", "device", "devil", "devote", "devoted", "diabetes", "diagnose", "diagnosis", "diagram", "dial",
+    "dialog", "dialogue", "diameter", "diamond", "diary", "dictate", "die", "diet", "differ", "difference",
+    "different", "differently", "difficult", "difficulty", "dig", "digital", "dignity", "dilemma", "dimension", "diminish",
+    "dining", "dinner", "diplomat", "diplomatic", "direct", "direction", "directly", "director", "dirt", "dirty",
+    "disability", "disabled", "disadvantage", "disagree", "disagreement", "disappear", "disappointed", "disappointment", "disaster", "disc",
+    "discipline", "discount", "discover", "discovery", "discrimination", "discuss", "discussion", "disease", "dish", "disk",
+    "dismiss", "disorder", "display", "disposal", "dispose", "dispute", "distance", "distant", "distinct", "distinction",
+    "distinctive", "distinguish", "distract", "distribute", "distribution", "distributor", "district", "disturb", "disturbing", "diverse",
+    "diversity", "divide", "divine", "division", "divorce", "DNA", "doctor", "document", "documentary", "documentation",
+    "dog", "dollar", "domain", "domestic", "dominant", "dominate", "donate", "donation", "donor", "door",
+    "doorway", "dose", "dot", "double", "doubt", "down", "downtown", "dozen", "draft", "drag",
+    "drain", "drama", "dramatic", "dramatically", "draw", "drawer", "drawing", "dream", "dress", "dried",
+    "drift", "drill", "drink", "drive", "driver", "drop", "drown", "drug", "drum", "drunk",
+    "dry", "duck", "due", "dumb", "dump", "during", "dust", "duty", "DVD", "dying",
+    "dynamic", "each", "eager", "ear", "early", "earn", "earnings", "earth", "earthquake", "ease",
+    "easily", "east", "eastern", "easy", "eat", "echo", "economic", "economics", "economist", "economy",
+    "ecosystem", "edge", "edit", "edition", "editor", "editorial", "educate", "education", "educational", "educator",
+    "effect", "effective", "effectively", "effectiveness", "efficiency", "efficient", "effort", "egg", "ego", "eight",
+    "eighth", "either", "elaborate", "elbow", "elder", "elderly", "elect", "election", "electoral", "electric",
+    "electrical", "electricity", "electronic", "electronics", "elegant", "element", "elementary", "elephant", "elevate", "elevation",
+    "elevator", "eleven", "eligible", "eliminate", "elimination", "elite", "else", "elsewhere", "email", "embrace",
+    "emerge", "emergency", "emission", "emotion", "emotional", "emotionally", "emphasis", "emphasize", "empire", "employ",
+    "employee", "employer", "employment", "empty", "enable", "enact", "encounter", "encourage", "encouraging", "end",
+    "endless", "endorse", "endorsement", "enemy", "energy", "enforce", "enforcement", "engage", "engagement", "engine",
+    "engineer", "engineering", "enhance", "enjoy", "enormous", "enough", "enrich", "enroll", "ensure", "enter",
+    "enterprise", "entertainment", "enthusiasm", "enthusiastic", "entire", "entirely", "entitle", "entity", "entrance", "entrepreneur",
+    "entry", "envelope", "environment", "environmental", "envision", "epidemic", "episode", "equal", "equality", "equally",
+    "equation", "equipment", "equity", "equivalent", "era", "error", "escape", "especially", "essay", "essence",
+    "essential", "essentially", "establish", "establishment", "estate", "estimate", "estimated", "ethical", "ethics", "ethnic",
+    "European", "evaluate", "evaluation", "even", "evening", "event", "eventually", "ever", "every", "everybody",
+    "everyday", "everyone", "everything", "everywhere", "evidence", "evident", "evil", "evolution", "evolutionary", "evolve",
+    "exact", "exactly", "exam", "examination", "examine", "example", "exceed", "excellent", "except", "exception",
+    "exceptional", "exchange", "excited", "excitement", "exciting", "exclude", "exclusion", "exclusive", "exclusively", "excuse",
+    "execute", "execution", "executive", "exercise", "exhaust", "exhibit", "exhibition", "exist", "existence", "existing",
+    "exit", "exotic", "expand", "expansion", "expect", "expectation", "expected", "expedition", "expense", "expensive",
+    "experience", "experienced", "experiment", "experimental", "expert", "expertise", "explain", "explanation", "explicit", "explode",
+    "exploit", "exploration", "explore", "explorer", "explosion", "export", "expose", "exposure", "express", "expression",
+    "extend", "extended", "extension", "extensive", "extent", "external", "extra", "extraordinary", "extreme", "extremely",
+    "eye"]; 
+
+const word = words[Math.floor(Math.random() * words.length)];
+
+fetch(word)
+  .then(response => response.json())
+  .then(([word]) => {
+    const apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+    return fetch(apiURL)
+      .then(response => {
+        if (!response.ok) throw new Error("Word not found");
+        return response.json();
+      })
+      .then(data => {
+        const entry = data[0];
+        const meaning = entry.meanings[0].definitions[0].definition;
+        const audioUrl = entry.phonetics.find(p => p.audio)?.audio;
+
+        document.getElementById("word").textContent = word;
+        document.getElementById("definition").textContent = meaning;
+
+        document.getElementById("play-audio").onclick = () => {
+          if (audioUrl) {
+            new Audio(audioUrl).play();
+          } else {
+            alert("No pronunciation audio available.");
+          }
+        };
+      });
+  })
+  .catch(error => {
+    document.getElementById("word").textContent = "Error";
+    document.getElementById("definition").textContent = "Could not fetch word.";
+    console.error(error);
+  });

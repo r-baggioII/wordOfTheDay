@@ -1,0 +1,135 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 2rem;
+    background-color: #C9D6EA;
+    /*background-color: #E8D7FF;
+    /*background-color: #B3DEC1;*/
+
+}
+
+.card {
+    background: white;
+    padding: 3em;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 900px;
+    height: 450px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding-right: 20px;
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffbf69;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+}
+
+.icon-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 3px solid #223a44;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.icon-container.pronunciation {
+    margin-top: 30px;
+}
+
+.icon-container svg {
+    width: 60px;
+    height: 60px;
+    color: #223a44;
+}
+
+.card-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #223a44;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    line-height: 1.2;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #223a44;
+}
+
+.btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: #1D7874
+}
+
+.btn:hover {
+    background-color: #272932
+}
+
+.definition_box {
+    width: 100%;
+    text-align: justify;
+    padding: 0.5em 0;
+    margin: 1em 0;
+}
+
+#word {
+    font-size: 2rem;
+    color: #1D7874;
+    margin-bottom: 0.3rem;
+}
+
+#definition {
+    line-height: 1.6;
+    display: block;
+    color: #555;
+    font-size: 1rem;
+}
+
+.pronunciation-title {
+    font-size: 1.25rem;
+    color: #5b9b9b;
+    margin-top: 1.5rem;
+    text-align: left;
+    width: 100%;
+}
+
+.bubble {
+    position: absolute;
+    background-color: #1D7874;
+    border-radius: 50%;
+}
+.bubble-top-right {
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    right: -20px;
+}
