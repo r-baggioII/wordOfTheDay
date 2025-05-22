@@ -23,52 +23,22 @@ const getDictionaryData = async (word) => {
 };
 
 const displayWord = async () => {
-  let word, data;
-  let attempts = 0;
-  const maxAttempts = 10; // Increase attempts to find a good word
+  try {
+    const res = await fetch('daily-word.json');
+    const data = await res.json();
 
-  while (attempts < maxAttempts) {
-    try {
-      word = await getRandomWord();
-      console.log(`Attempting with word: ${word}`);
-      attempts++;
+    document.getElementById("word").textContent = data.word;
+    document.getElementById("definition").textContent = data.definition;
 
-      data = await getDictionaryData(word);
-      
-      // Successfully found a word with definition
-      break;
-    } catch (err) {
-      console.warn(`Try ${attempts}: Failed to fetch dictionary data for "${word}".`, err);
-      
-      // Wait briefly before trying again to avoid hitting rate limits
-      await new Promise(resolve => setTimeout(resolve, 200));
-    }
-  }
-
-  if (!data) {
+    document.getElementById("play-audio").onclick = () => {
+      useBrowserTTS(data.word, data.phonetic);
+    };
+  } catch (err) {
     document.getElementById("word").textContent = "Error";
-    document.getElementById("definition").textContent = "Could not find a valid word after multiple attempts.";
-    return;
+    document.getElementById("definition").textContent = "Failed to load word.";
   }
-
-  const entry = data[0];
-  const meaning = entry.meanings[0]?.definitions[0]?.definition || "No definition found.";
-  const phonetic = entry.phonetic || entry.phonetics.find(p => p.text)?.text || "";
-
-  document.getElementById("word").textContent = word;
-  document.getElementById("definition").textContent = meaning;
-
-  // Add phonetic display if you want (optional)
-  // You could add a new element in your HTML for this, like:
-  // <div id="phonetic"></div>
-  // And then: document.getElementById("phonetic").textContent = phonetic || "";
-
-  document.getElementById("play-audio").onclick = () => {
-    // Siempre usar el TTS del navegador, ignorando el audio de la API
-    console.log("Usando TTS del navegador para pronunciación");
-    useBrowserTTS(word, phonetic);
-  };
 };
+
 
 function useBrowserTTS(word) {
   // Check if browser supports speech synthesis

@@ -1,0 +1,15 @@
+name: Daily Word Bot
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Runs every day at 8 AM UTC
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  call-daily-endpoint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call flashcard API
+        run: |
+          curl -X GET https://your-app.com/api/flashcard/today

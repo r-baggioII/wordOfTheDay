@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Word of the Day</title>
   <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
   <div class="card">
     <div class="left-side">
       <div class="card-title">Word of the Day</div>
       <h2 id="word">Loading...</h2>
+      <!-- Añadido: elemento para mostrar la pronunciación fonética -->
+      <div id="phonetic-container">
+        <span id="phonetic"></span>
+      </div>
       <div class="definition_box">
           <span id="definition">...</span>
       </div>
@@ -23,6 +26,11 @@
           <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
         </svg>
         Pronounce
+      </button>
+      
+      <!-- Añadido: botón para obtener una nueva palabra -->
+      <button class="btn" id="new-word" style="margin-left: 10px;">
+        New Word
       </button>
     </div>
     
@@ -44,7 +52,8 @@
       </div>
     </div>
   </div>
+  
+  <!-- Solo un script es necesario -->
   <script src="script.js"></script>
-  <script src="dict.js"></script>
 </body>
 </html>
